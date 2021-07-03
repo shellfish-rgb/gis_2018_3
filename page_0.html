@@ -1,0 +1,352 @@
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title>全球碳排放</title>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
+
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>   
+        <script src="echarts.min.js"></script>              
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://js.arcgis.com/4.19/"></script>
+
+        <style>
+            html,
+            body,
+            #viewDiv {
+                padding: 0;
+                margin: 0;
+                height: 90%;
+                width: 100%;
+                top: 10%;
+                left: 0;
+                position: fixed;
+            }
+            #dataSelect {
+                width: 10%;
+            }
+            #navbar {
+                padding: 0;
+                margin: 0;
+                height: 10%;
+                width: 100%;
+                top: 0;
+                position: fixed;
+                z-index: 99999;
+            }
+            #chart1, #chart2 {
+                background-color: white;
+                padding: 12px 15px;
+                margin: 0;
+                height: 180px;
+                width: 400px;
+                right: 15px;
+                z-index: 99999;
+                position: absolute;
+            }
+            #chart1 {
+                bottom: 460px;
+            }
+            #chart2 {
+                bottom: 270px;
+            }
+        </style>
+
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid shadow" id="navbar">
+
+                <a class="navbar-brand ms-5" href="page_0.html">全球碳排放地图</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">碳排地图</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page_1.html">低碳日</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="page_2.html">气候会议</a>
+                        </li>
+                    </ul>
+
+                    <span class="navbar-text">
+                        选择时间：
+                    </span>
+
+                    <select class="navbar-select form-select me-2" id="dataSelect" onchange="selectOnChange(this)">
+                        <option selected value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option>请
+                    </select>
+
+                    <span class="navbar-text me-5">
+                        年
+                    </span>
+                    
+
+                </div>
+            </div>
+        </nav>
+        <div id="viewDiv">
+            <div id="chart1" class="shadow"></div>
+            <div id="chart2" class="shadow"></div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById('chart1'));
+            // 指定图表的配置项和数据
+            myChart.setOption({
+                title: { 
+                    text: '主要国家2009-2018年温室气体排放表' ,
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: "axis"
+                },
+                legend: {
+                    data: ['Australia', 'China', 'Russia', 'UK', 'US'],
+                    bottom: -3
+                },
+                grid: {
+                    top: '40',
+                    left: '0',
+                    right: '0',
+                    bottom: '20',
+                    containLabel: true
+                },
+                xAxis: {
+                    data: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: 'Australia',
+                        type: 'line',
+                        data: [633.8, 601.14, 644.74, 643.12, 555.26, 566.21, 566.47, 577.32, 623.08, 619.26]
+                    },
+                    {
+                        name: 'China',
+                        type: 'line',
+                        data: [9046.19, 9872.37, 10364.83, 10690.04, 11144.76, 11155.76, 11149.68, 11207.66, 11408.26, 11705.81]
+                    },
+                    {
+                        name: 'Russia',
+                        type: 'line',
+                        data: [1575.54, 1690.93, 1864.86, 1886.41, 1844.48, 1841.26, 1791.21, 1918.26, 1939.26, 1992.08]
+                    },
+                    {
+                        name: 'UK',
+                        type: 'line',
+                        data: [570.73, 583.6, 540.98, 562.45, 543.71, 502.84, 486.78, 464.28, 450.24, 441.13]
+                    },
+                    {
+                        name: 'US',
+                        type: 'line',
+                        data: [5793.66, 6041.59, 5796.78, 5550.87, 5690.79, 5711.15, 5586.69, 5676.92, 5613.64, 5794.35]
+                    }
+                ]
+            });
+            // 基于准备好的dom，初始化echarts实例
+            var myChart1 = echarts.init(document.getElementById('chart2'));
+            // 指定图表的配置项和数据
+            myChart1.setOption({
+                title: { 
+                    text: '主要国家2009-2018年温室气体排放比GDP表' ,
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: "axis"
+                },
+                legend: {
+                    data: ['Australia', 'China', 'Russia', 'UK', 'US'],
+                    bottom: -3
+                },
+                grid: {
+                    top: '40',
+                    left: '0',
+                    right: '0',
+                    bottom: '20',
+                    containLabel: true
+                },
+                xAxis: {
+                    data: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018]
+                },
+                yAxis: {},
+                // legend: {
+                //     data: data.country
+                // },
+                series: [
+                    {
+                        name: 'Australia',
+                        type: 'line',
+                        data: [683.12,524.49,461.63,415.95,352.28,385.84,419.08,477.58,468.77,432.18]
+                    },
+                    {
+                        name: 'China',
+                        type: 'line',
+                        data: [1034.92,854.79,667.27,598.35,598.37,608.79,796.57,934.18,835.61,803.29]
+                    },
+                    {
+                        name: 'Russia',
+                        type: 'line',
+                        data: [1288.64,1108.87,911.5,854.24,804.58,894.14,1313.7,1502.41,1231.9,1193.16]
+                    },
+                    {
+                        name: 'UK',
+                        type: 'line',
+                        data: [236.73,235.78,203.43,207.94,195.16,164.12,166.22,172.32,168.87,154.2]
+                    },
+                    {
+                        name: 'US',
+                        type: 'line',
+                        data: [400.98,402.98,372.96,342.71,339.04,325.84,306.55,303.34,287.59,281.55]
+                    }
+                ]
+            });
+        </script>
+
+
+        <script>
+            require([
+                "esri/config",
+                "esri/Map",
+                "esri/views/MapView",
+                "esri/widgets/LayerList",
+                "esri/layers/CSVLayer",
+                "esri/smartMapping/renderers/color",
+                "esri/widgets/Legend"
+            ],
+                function (
+                    esriConfig,
+                    Map,
+                    MapView,
+                    LayerList,
+                    CSVLayer,
+                    colorRendererCreator,
+                    Legend) {
+
+                    esriConfig.apiKey = "AAPK56e3ac027f044c4089d8ceec232fc05dYaOuzVRzm8tMRqvzOvDvIEevbqJ85yppn9PacU6cy4duurJrVK9wo_8BcWO8i8bi";
+
+                    const map = new Map({
+                        basemap: "osm-standard" // Basemap layer service
+                    });
+                    const view = new MapView({
+                        map: map,
+                        center: [108, 34], // Longitude, latitude
+                        zoom: 2, // Zoom level
+                        container: "viewDiv" // Div element
+                    });
+
+
+                    //CSV文件，1990-2018年193个国家的年碳排放数据，单位是亿吨二氧化碳当量(MtCO2e)
+                    let url = "https://raw.githubusercontent.com/shellfish-rgb/gis_2018_3/master/ghg-emissions.csv";
+
+                    let csvLayer = new CSVLayer({
+                        url: url,
+                        copyright: "USGS Earthquakes"
+                    });
+                    csvLayer.renderer = {
+                        type: "simple", // autocasts as new SimpleRenderer()
+                        symbol: {
+                            type: "simple-marker", // autocasts as new SimpleFillSymbol()
+                            outline: {
+                                // makes the outlines of all features consistently light gray
+                                color: "lightgrey",
+                                width: 0.5
+                            },
+                            color: "grey",
+                            size: 15
+                        }, // the default symbol defined in step 1
+                        label: "各国排放温室气体总量（MtCO2e）", // label for the legend
+                        visualVariables: [
+                            {
+                                type: "color", // indicates this is a color visual variable
+                                field: "2018", // total population in poverty
+                                stops: [
+                                    {
+                                        value: 1, // features where < 10% of the pop in poverty
+                                        color: "#AFD788", // will be assigned this color
+                                        label: "10% or lower" // label to display in the legend
+                                    },
+                                    {
+                                        value: 1000, // features where > 30% of the pop in poverty
+                                        color: "#367517",
+                                        label: "5000 or higher" // label to display in the legend
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                    map.add(csvLayer);
+
+                    //图例
+                    let legend = new Legend({
+                        view: view,
+                        layerInfos: [{
+                            layer: csvLayer,
+                            title: "Legend"
+                        }]
+                    });
+                    view.ui.add(legend, "bottom-right");
+
+                    function yearsChange(value) {
+                        csvLayer.renderer = {
+                        type: "simple", // autocasts as new SimpleRenderer()
+                        symbol: {
+                            type: "simple-marker", // autocasts as new SimpleFillSymbol()
+                            outline: {
+                                // makes the outlines of all features consistently light gray
+                                color: "lightgrey",
+                                width: 0.5
+                            },
+                            color:"grey",
+                            size:15
+                        }, // the default symbol defined in step 1
+                        label: "各国排放温室气体总量（MtCO2e）", // label for the legend
+                        visualVariables: [
+                            {
+                                type: "color", // indicates this is a color visual variable
+                                field: value, // total population in poverty
+                                stops: [
+                                    {
+                                        value: 1, // features where < 10% of the pop in poverty
+                                        color: "#AFD788", // will be assigned this color
+                                        label: "10% or lower" // label to display in the legend
+                                    },
+                                    {
+                                        value: 1000, // features where > 30% of the pop in poverty
+                                        color: "#367517",
+                                        label: "5000 or higher" // label to display in the legend
+                                    }
+                                ]
+                            }
+                        ]
+                        }
+                    }
+
+                    window.selectOnChange = selectOnChange;
+                    function selectOnChange(select) {
+                        yearsChange(select.value);
+                    }
+                }
+            );
+
+        </script>
+
+    </body>
+
+</html>

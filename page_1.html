@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>Carousel Template · Bootstrap v5.0</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="muban_files/bootstrap.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png"
+    sizes="180x180">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32"
+    type="image/png">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16"
+    type="image/png">
+  <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
+  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
+    color="#7952b3">
+  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+  <meta name="theme-color" content="#7952b3">
+
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+      .body {
+       padding-top: 0px;
+       position: fixed;
+   }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="muban_files/carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+
+        <a class="navbar-brand" href="page_0.html">全球碳排地图</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="page_0.html">碳排地图</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">低碳日</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="page_2.html">气候会议</a>
+            </li>
+          </ul>
+
+          <span class="navbar-text">
+            选择时间：
+          </span>
+
+          <select class="navbar-select form-select me-2" style="width:10%">
+            <option selected>2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2015">2015</option>
+            <option value="2014">2014</option>
+            <option value="2013">2013</option>
+            <option value="2012">2012</option>
+            <option value="2011">2011</option>
+            <option value="2010">2010</option>
+            <option value="2009">2009</option>
+            <option value="2008">2008</option>
+            <option value="2007">2007</option>
+            <option value="2006">2006</option>
+            <option value="2005">2005</option>
+            <option value="2004">2004</option>
+            <option value="2003">2003</option>
+            <option value="2002">2002</option>
+            <option value="2001">2001</option>
+            <option value="2000">2000</option>
+            <option value="1999">1999</option>
+            <option value="1998">1998</option>
+            <option value="1997">1997</option>
+            <option value="1996">1996</option>
+            <option value="1995">1995</option>
+            <option value="1994">1994</option>
+            <option value="1993">1993</option>
+            <option value="1992">1992</option>
+            <option value="1991">1991</option>
+            <option value="1990">1990</option>请
+          </select>
+
+          <span class="navbar-text">
+            年
+          </span>
+
+
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Marketing messaging and featurettes
+  ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+      <!-- START THE FEATURETTES -->
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">全国低碳日的由来</h2>
+          <p class="lead">
+            为普及气候变化知识，宣传低碳发展理念和政策，鼓励公众参与，推动落实控制温室气体排放任务，2012年9月19日，国务院总理温家宝主持召开国务院常务会议，听取退耕还林工作汇报，讨论通过《京津风沙源治理二期工程规划（2013—2022年）》。会议决定自2013年起，将全国节能宣传周的第三天设立为“全国低碳日”。
+            “全国低碳日”，旨在坚持“以人为本”的理念，加强适应气候变化和防灾减灾的宣传教育。
+            2013年6月6日，国家应对气候变化战略研究和国际合作中心召开媒体通气会，确定2013年6月17日为首个“全国低碳日”，届时将启动“低碳中国行”活动。</p>
+        </div>
+        <div class="col-md-5">
+          <img src="img\低碳日3.png" height="500px" width="500px">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+          <h2 class="featurette-heading">什么是低碳</h2>
+          <p class="lead">低碳，意指较低（更低）的温室气体（二氧化碳为主）排放。<span
+              class="text-muted">“低碳”“碳足迹”等词汇近年来成为国内外的热门用语。这里的“碳”主要指二氧化碳气体。</span></p>
+          <p class="lead">节能减排就是节约能源、降低能源消耗。<span
+              class="text-muted">《中华人民共和国节约能源法》所称节约能源（简称节能），是指加强用能管理，采取技术上可行、经济上合理以及环境和社会可以承受的措施，从能源生产到消费的各个环节，降低消耗、减少损失和污染物排放、制止浪费，有效、合理地利用能源。
+              低碳内涵为：低碳社会、低碳经济、低碳生产、低碳消费、低碳生活、低碳城市、低碳社区、低碳家庭、低碳旅游、低碳文化、低碳哲学、低碳艺术、低碳音乐、低碳人生、低碳生存主义、低碳生活方式。</span></p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="img\低碳日2.jpeg" width="500px" height="600px">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <!--放字-->
+        <div class="col-md-7">
+          <h2 class="featurette-heading">为什么要低碳</h2>
+          <p class="lead">
+            自工业革命以来，由于人类活动，特别是开采、燃烧煤炭等化石能源，大气中的二氧化碳气体含量急剧增加，导致以气候变暖为主要特征的全球气候变化。据气象专家介绍，大气中的水蒸气、臭氧、二氧化碳等气体可透过太阳短波辐射，使地球表面升温，同时阻挡地球表面向宇宙空间发射长波辐射，从而使大气增温。由于二氧化碳等气体的这一作用与“温室”的作用类似，所以被称为温室气体。
+            除二氧化碳外，其他气体还包括甲烷、氧化亚氮、氢氟碳化物、全氟碳化物、六氟化硫等。二氧化碳全球排放量大、增温效应高、生命周期长，是对气候变化影响最大的温室气体。</p>
+        </div>
+        <!--放图片-->
+        <div class="col-md-5">
+          <img src="img\低碳日1.jpeg" height="500px" width="500px">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+  </main>
+
+
+  <script src="muban_files/bootstrap.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
