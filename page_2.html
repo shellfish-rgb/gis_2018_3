@@ -1,200 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title>全球碳排放</title>    
 
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.84.0">
-  <title>Carousel Template · Bootstrap v5.0</title>
+        <!--引用 boostrap 的 css 样式-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="muban_files/carousel.css" rel="stylesheet">
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+        <!--引用 boostrap 的 js 文件-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+        <!--本页内部样式表-->
+        <style>
 
+            #navbar {
+                padding: 0;
+                margin: 0;
+                height: 10%;
+                width: 100%;
+                top: 0;
+                position: fixed;
+                z-index: 99999;
+            }
 
-  <!-- Bootstrap core CSS -->
-  <link href="muban_files/bootstrap.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        </style>
+    </head>
 
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/apple-touch-icon.png"
-    sizes="180x180">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-32x32.png" sizes="32x32"
-    type="image/png">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon-16x16.png" sizes="16x16"
-    type="image/png">
-  <link rel="manifest" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/manifest.json">
-  <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
-    color="#7952b3">
-  <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
-  <meta name="theme-color" content="#7952b3">
+    <body>
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid shadow" id="navbar">
 
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+                <a class="navbar-brand ms-5" href="page_0.html">全球碳排放地图</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="page_0.html">碳排地图</a>
+                        </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" href="page_1.html">低碳日</a>
+                        </li>
 
-  <!-- Custom styles for this template -->
-  <link href="muban_files/carousel.css" rel="stylesheet">
-</head>
-
-<body>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container-fluid">
-
-        <a class="navbar-brand" href="page_0.html">标题</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="page_0.html">碳排地图</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="page_1.html">低碳日</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">气候会议</a>
-            </li>
-          </ul>
-
-          <span class="navbar-text">
-            选择时间：
-          </span>
-
-          <select class="navbar-select form-select me-2" style="width:10%">
-            <option selected>2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-            <option value="2011">2011</option>
-            <option value="2010">2010</option>
-            <option value="2009">2009</option>
-            <option value="2008">2008</option>
-            <option value="2007">2007</option>
-            <option value="2006">2006</option>
-            <option value="2005">2005</option>
-            <option value="2004">2004</option>
-            <option value="2003">2003</option>
-            <option value="2002">2002</option>
-            <option value="2001">2001</option>
-            <option value="2000">2000</option>
-            <option value="1999">1999</option>
-            <option value="1998">1998</option>
-            <option value="1997">1997</option>
-            <option value="1996">1996</option>
-            <option value="1995">1995</option>
-            <option value="1994">1994</option>
-            <option value="1993">1993</option>
-            <option value="1992">1992</option>
-            <option value="1991">1991</option>
-            <option value="1990">1990</option>请
-          </select>
-
-          <span class="navbar-text">
-            年
-          </span>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height:700px">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"
-          aria-current="true"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
-      </div>
-
-      <div class="carousel-inner" style="height:700px">
-        <div class="carousel-item active">
-          <img src="img\气候会议2.jfif" class="d-block w-100" style="height: 700px">
-          <div class="container">
-            <div class="carousel-caption text-start">
-              <h1>哥本哈根气候大会</h1>
-              <p>
-                哥本哈根世界气候大会全称是《联合国气候变化框架公约》第15次缔约方会议暨《京都议定书》第5次缔约方会议，这一会议也被称为哥本哈根联合国气候变化大会，于2009年12月7日—18日在丹麦首都哥本哈根召开。12月7日起，192个国家的环境部长和其他官员们在哥本哈根召开联合国气候会议，这是继《京都议定书》后又一具有划时代意义的全球气候协议书，毫无疑问，对地球今后的气候变化走向产生决定性的影响。这是一次被喻为“拯救人类的最后一次机会”的会议。会议在现代化的Bella中心举行，为期两周。
-              </p>
-              <p><a class="btn btn-lg btn-primary" href="https://baike.baidu.com/item/%E5%93%A5%E6%9C%AC%E5%93%88%E6%A0%B9%E4%B8%96%E7%95%8C%E6%B0%94%E5%80%99%E5%A4%A7%E4%BC%9A/4365585?fr=aladdin">Learn more</a></p>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="page_1.html">气候会议</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-          </div>
-        </div>
+        </nav>
+        
+        <div id="content">
+            <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" style="height:700px">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+                    <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+                </div>
 
-        <div class="carousel-item" style="height:700px">
-          <img src="img\哥本哈根气候会议.jfif" class="d-block w-100" style="height:700px">
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>协议内容</h1>
-              <p style="color:black">会议达成无约束力协议：
-                联合国气候变化框架公约第十五次缔约方会议和京都议定书第五次缔约方会议于当地时间十九日下午在丹麦首都哥本哈根落幕。会议达成不具法律约束力的《哥本哈根协议》。
-                潘基文当天发表了一篇充满感情色彩的讲话。他说，过去的两天令人“筋疲力尽”。我们进行的讨论“时而有戏剧性，时而非常热烈”。
-                《哥本哈根协议》维护了《联合国气候变化框架公约》及其《京都议定书》确立的“共同但有区别的责任”原则，就发达国家实行强制减排和发展中国家采取自主减缓行动作出了安排，
-                并就全球长期目标、资金和技术支持、透明度等焦点问题达成广泛共识。
-              </p>
+                <div class="carousel-inner" style="height:700px">
+                    <div class="carousel-item active">
+                        <img src="img\气候会议2.jfif" class="d-block w-100" style="height: 700px">
+                        <div class="container">
+                            <div class="carousel-caption text-start">
+                                <h1>哥本哈根气候大会</h1>
+                                <p>
+                                    哥本哈根世界气候大会全称是《联合国气候变化框架公约》第15次缔约方会议暨《京都议定书》第5次缔约方会议，这一会议也被称为哥本哈根联合国气候变化大会，于2009年12月7日—18日在丹麦首都哥本哈根召开。12月7日起，192个国家的环境部长和其他官员们在哥本哈根召开联合国气候会议，这是继《京都议定书》后又一具有划时代意义的全球气候协议书，毫无疑问，对地球今后的气候变化走向产生决定性的影响。这是一次被喻为“拯救人类的最后一次机会”的会议。会议在现代化的Bella中心举行，为期两周。
+                                </p>
+                                <p>
+                                    <a class="btn btn-lg btn-primary" href="https://baike.baidu.com/item/%E5%93%A5%E6%9C%AC%E5%93%88%E6%A0%B9%E4%B8%96%E7%95%8C%E6%B0%94%E5%80%99%E5%A4%A7%E4%BC%9A/4365585?fr=aladdin">Learn more</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="height:700px">
+                        <img src="img\哥本哈根气候会议.jfif" class="d-block w-100"  style="height:700px">
+                        <div class="container">
+                            <div class="carousel-caption">
+                                <h1>协议内容</h1>
+                                <p style="color:black">
+                                    会议达成无约束力协议：
+                                    联合国气候变化框架公约第十五次缔约方会议和京都议定书第五次缔约方会议于当地时间十九日下午在丹麦首都哥本哈根落幕。会议达成不具法律约束力的《哥本哈根协议》。
+                                    潘基文当天发表了一篇充满感情色彩的讲话。他说，过去的两天令人“筋疲力尽”。我们进行的讨论“时而有戏剧性，时而非常热烈”。
+                                    《哥本哈根协议》维护了《联合国气候变化框架公约》及其《京都议定书》确立的“共同但有区别的责任”原则，就发达国家实行强制减排和发展中国家采取自主减缓行动作出了安排，
+                                    并就全球长期目标、资金和技术支持、透明度等焦点问题达成广泛共识。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item" style="height:700px">
+                        <img src="img\气候会议3.jpg" class="d-block w-100"  style="height:700px">
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h1 style="color:black; -webkit-text-stroke: 0.1px #FFF;">环境意义</h1>
+                                <p style="color:black; -webkit-text-stroke: 0.1px #FFF;">
+                                    如果《哥本哈根议定书》不能在今年的缔约方会议上达成共识并获得通过，
+                                    那么在2012年 《京都议定书》第一承诺期到期之后，全球将没有一个共同文件来约束温室气体的排放。
+                                    这将导致人类遏制全球变暖的行动遭到重大挫折。也因为这个原因，本次会议被喻为 “拯救人类的最后一次机会”。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-          </div>
         </div>
-
-        <div class="carousel-item" style="height:700px">
-          <img src="img\气候会议3.jpg" class="d-block w-100" style="height:700px">
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1 style="color:black; -webkit-text-stroke: 0.1px #FFF;">环境意义</h1>
-              <p style="color:black; -webkit-text-stroke: 0.1px #FFF;">如果《哥本哈根议定书》不能在今年的缔约方会议上达成共识并获得通过，
-                那么在2012年 《京都议定书》第一承诺期到期之后，全球将没有一个共同文件来约束温室气体的排放。
-                这将导致人类遏制全球变暖的行动遭到重大挫折。也因为这个原因，本次会议被喻为 “拯救人类的最后一次机会”。</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
-  </main>
-  <script src="muban_files/bootstrap.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
 </body>
 
 </html>
